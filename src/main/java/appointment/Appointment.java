@@ -4,7 +4,7 @@
 package appointment;
 
 import org.springframework.data.annotation.Id;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 //Definition of Appointment class
 //Contains all fields to be stored in the database
@@ -12,26 +12,30 @@ public class Appointment {
 
 	@Id private String id;
 
-	private Date createdAt;
-	private Date appointmentDate;
+	private LocalDateTime createdAt;
+	private LocalDateTime appointmentDate;
 	private Integer appointmentDuration; //in minutes
 	private String nameOfDoctor;
-	private String status;
+	private Status status;
 	private Double price;
 
-	public Date getCreatedAt() {
+	public String getId() {
+		return id;
+	}
+
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public Date getAppointmentDate() {
+	public LocalDateTime getAppointmentDate() {
 		return appointmentDate;
 	}
 
-	public void setAppointmentDate(Date appointmentDate) {
+	public void setAppointmentDate(LocalDateTime appointmentDate) {
 		this.appointmentDate = appointmentDate;
 	}
 
@@ -51,11 +55,11 @@ public class Appointment {
 		this.nameOfDoctor = nameOfDoctor;
 	}
 
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

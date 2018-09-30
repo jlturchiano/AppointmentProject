@@ -1,3 +1,5 @@
 appointment\Application.class
-appointment\Appointment.class
 appointment\AppointmentRepository.class
+appointment\Appointment.class
+appointment\AppointmentResource.class
+appointment\Status.class
