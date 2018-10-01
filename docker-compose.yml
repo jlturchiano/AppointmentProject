@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  appointmentproject:
+    image: appointmentproject
+    ports: 
+      - 8080:8080
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_DB_NAME=appointments
+    links:
+      - mongo
+
+  mongo:
+    image: mongo:3.2
+    depends_on:
+      - mongodata
+    volumes_from:
+      - mongodata
+    ports:
+      - "27017"
+
+  mongodata:
+    image: mongo:3.2
+    volumes:
+      - /data/db
+    entrypoint: /bin/bash
